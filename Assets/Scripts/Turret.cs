@@ -24,7 +24,7 @@ public class Turret : MonoBehaviour {
 		isShooting = true;
 
 		if (AnimController_Gun != null) {
-			AnimController_Gun.speed = 0f
+			AnimController_Gun.speed = 0f;
 		}
 
 		RaycastHit hit;
