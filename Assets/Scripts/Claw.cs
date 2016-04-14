@@ -43,4 +43,24 @@ public class Claw : MonoBehaviour {
 			isRetracting = false;
 		}
 	}
+
+	public void ClawTarget (Vector3 targetPos) {
+		target = targetPos;
+	}
+
+	void OnTriggerEnter(Collider other) {
+		if (!isRetracting) {
+			isRetracting = true;
+			target = Origin.position;
+
+			if (other.gameObject.CompareTag("Gem")) {
+				isGemHit = true;
+			}
+
+			if (!other.gameObject.CompareTag ("Barrier")) {
+				childObject = other.gameObject;
+				childObject.transform.SetParent (this.transform);
+			}
+		}
+	}
 }

@@ -32,7 +32,14 @@ public class Turret : MonoBehaviour {
 		Vector3 down = transform.TransformDirection(Vector3.down);
 
 		if(Physics.Raycast(transform.position, 	down, out hit, 100f)) {
+
+			if (Claw != null) {
 			
+				Claw.SetActive (true);
+				Claw.GetComponent<Claw> ().ClawTarget (hit.point);
+
+			}
+
 		}
 	}
 
