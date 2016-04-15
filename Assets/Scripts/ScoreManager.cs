@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class ScoreManager : MonoBehaviour {
@@ -45,6 +46,10 @@ public class ScoreManager : MonoBehaviour {
 			YouWon.SetActive (true);
 		} else if (Score < TargetScore && GameOver != null) {
 			GameOver.SetActive (true);
+			if (Input.GetKeyDown(KeyCode.R)) 
+			{
+				SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+			}
 		}
 	}
 }
