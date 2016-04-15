@@ -22,11 +22,15 @@ public class ScoreManager : MonoBehaviour {
 	private void DeductTimer(){
 		timerPerLevel--;
 		TxtTime.text = "Time : " + timerPerLevel;
+
+		if (timerPerLevel == 0) {
+			CheckForGameOver ();
+		}
 	}
 
 	public void AddPoints(int points){
 		Score += points;
-		TxtScore.text = "Score : " + Score + " / " + TargetScore;
+		TxtScore.text = "Score: " + Score + " / " + TargetScore;
 
 		if (Score >= TargetScore) {
 			Time.timeScale = 0f;

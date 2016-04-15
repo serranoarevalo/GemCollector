@@ -62,7 +62,7 @@ public class Claw : MonoBehaviour {
 				isGemHit = true;
 			}
 
-			if (!other.gameObject.CompareTag("Barrier")) {
+			if (!other.gameObject.CompareTag("Barrier") && !other.gameObject.CompareTag("Rock")) {
 				childObject = other.gameObject;
 				childObject.transform.SetParent (this.transform);
 			}
