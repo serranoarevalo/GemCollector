@@ -1,2 +1,2 @@
 # GemCollector
-Game Collector Game with Unity 5 and C#
+Gem Collector Game with Unity 5 and C#
