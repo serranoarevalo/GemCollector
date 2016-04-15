@@ -6,6 +6,7 @@ public class Claw : MonoBehaviour {
 	public Transform Origin = null;
 	public float Speed = 4f;
 	public Turret TurretScript = null;
+	public ScoreManager ScoreManagerScript = null;
 
 	public int GemValue = 100;
 
@@ -32,6 +33,10 @@ public class Claw : MonoBehaviour {
 
 			if (isGemHit) {
 
+				if (ScoreManagerScript != null) {
+					ScoreManagerScript.AddPoints (GemValue);
+				}
+
 				isGemHit = false;
 			}
 
@@ -57,7 +62,7 @@ public class Claw : MonoBehaviour {
 				isGemHit = true;
 			}
 
-			if (!other.gameObject.CompareTag ("Barrier")) {
+			if (!other.gameObject.CompareTag("Barrier")) {
 				childObject = other.gameObject;
 				childObject.transform.SetParent (this.transform);
 			}
